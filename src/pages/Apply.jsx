@@ -27,7 +27,7 @@ function Apply() {
     }
     setGenerating(true);
     try {
-      const res = await api.post("/api/generate-email", { jobText, company });
+      const res = await api.post("/generate-email", { jobText, company });
       setEmailText(res.data.emailText + "\n" + userName);
     } catch {
       alert("Failed to generate email");
@@ -43,7 +43,7 @@ function Apply() {
     }
     setLoading(true);
     try {
-      await api.post("/api/application/apply", {
+      await api.post("/application/apply", {
         company,
         toEmail,
         emailText,
